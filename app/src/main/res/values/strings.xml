@@ -2,4 +2,10 @@
     <string name="app_name">Sid\'sFirstApp</string>
     <string name="edit_message">Hello World</string>
     <string name="button_send">Send</string>
+    <string name="njt_status_label">NJT Status</string>
+    <string-array name="njt_status_choices">
+        <item>Select NJT Status Option</item>
+        <item>NJT Status to NYC</item>
+        <item>NJT Status to Fort Lee</item>
+    </string-array>
 </resources>

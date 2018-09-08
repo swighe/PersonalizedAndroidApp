@@ -21,3 +21,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
         textView.setText(message);
     }
 }
+
+/*
+
+TO NYC
+------
+curl "http://mybusnow.njtransit.com/bustime/map/getRoutesForAgency.jsp?agency=21922"
+<?xml version="1.0"?>
+<error>No routes found</error>
+
+TO FORT LEE
+-----------
+curl "http://mybusnow.njtransit.com/bustime/map/getRoutesForAgency.jsp?agency=26229"
+<?xml version="1.0"?>
+<error>No routes found</error>
+ */
