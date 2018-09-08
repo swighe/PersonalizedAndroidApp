@@ -2,24 +2,16 @@ package com.rockstar.swighe.helloworld;
 
 import android.Manifest;
 import android.content.Intent;
-import android.location.Location;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends ExtendedAppCompatActivity implements AdapterView.OnItemSelectedListener {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     @Override
@@ -54,29 +46,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         sendSMS("9493501251", message);
     }
 
-    private void requestPermission(String perm){
-        ActivityCompat.requestPermissions(this, new String[]{perm}, 1);
-    }
-
-    private void sendSMS(String phoneNo, String msg) {
-        try {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNo, null, msg, null, null);
-            Toast.makeText(getApplicationContext(), "Message Sent",
-                    Toast.LENGTH_LONG).show();
-        } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(),ex.getMessage().toString(),
-                    Toast.LENGTH_LONG).show();
-            ex.printStackTrace();
-        }
-    }
-
     /** Called when the user taps the SendLocation button */
     public void sendLocation(View view) {
-        LocationManager locationManager = new LocationManager();
-        Location location = locationManager.getLocation();
-        TextView locationText = findViewById(R.id.locationText);
-        locationText.setText(location.toString());
+        Intent intent = new Intent(this, LocationActivity.class);
+        startActivity(intent);
 
         //requestPermission(Manifest.permission.READ_SMS);
         //sendSMS("9493501251", message);
@@ -89,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 case 1:
                     //Uri uri = Uri.parse("http://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=---&direction=---&stop=---&id=21922&showAllBusses=on&findstop=on");
                     Uri uri = Uri.parse("http://mybusnow.njtransit.com/bustime/eta/eta.jsp?route=158&direction=New%20York&stop=PORT%20IMPERIAL%20BLVD.%20%2B%20NORTH%20PARK%20CT.&id=21922&showAllBusses=on");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    Intent
+                            intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                     break;
                 case 2:
