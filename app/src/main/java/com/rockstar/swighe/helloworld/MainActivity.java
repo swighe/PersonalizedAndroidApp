@@ -43,7 +43,7 @@ public class MainActivity extends ExtendedAppCompatActivity implements AdapterVi
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
         requestPermission(Manifest.permission.READ_SMS);
-        sendSMS("9493501251", message);
+        sendSMS(getString(R.string.chie_phone), message);
     }
 
     /** Called when the user taps the SendLocation button */
@@ -52,7 +52,7 @@ public class MainActivity extends ExtendedAppCompatActivity implements AdapterVi
         startActivity(intent);
 
         //requestPermission(Manifest.permission.READ_SMS);
-        //sendSMS("9493501251", message);
+        //sendSMS(getString(R.string.chie_phone), message);
     }
 
     @Override

@@ -8,4 +8,6 @@
         <item>NJT Status to NYC</item>
         <item>NJT Status to Fort Lee</item>
     </string-array>
+    <string name="sid_phone">4256474503</string>
+    <string name="chie_phone">9493501251</string>
 </resources>
