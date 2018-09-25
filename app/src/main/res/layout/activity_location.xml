@@ -63,6 +63,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="sendLocation"
         android:text="Share Location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/longitudeLabel" />
@@ -88,5 +89,30 @@
         android:text="DisplayLocation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SendLocationButton" />
+
+    <Button
+        android:id="@+id/saveLocationButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="saveLocation"
+        android:text="Save location"
+        app:layout_constraintStart_toEndOf="@+id/locationNameTxt"
+        app:layout_constraintTop_toBottomOf="@+id/displayLocation" />
+
+    <EditText
+        android:id="@+id/locationNameTxt"
+        android:layout_width="197dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayLocation" />
 
 </android.support.constraint.ConstraintLayout>

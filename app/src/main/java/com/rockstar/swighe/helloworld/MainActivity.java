@@ -11,8 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.firebase.ui.auth.AuthUI;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends ExtendedAppCompatActivity implements AdapterView.OnItemSelectedListener {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private static int RC_SIGN_IN = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,11 @@ public class MainActivity extends ExtendedAppCompatActivity implements AdapterVi
         EditText editText = findViewById(R.id.editText);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    public void authenticatePress(View view) {
+        Intent intent = new Intent(this, AuthenticateActivity.class);
         startActivity(intent);
     }
 

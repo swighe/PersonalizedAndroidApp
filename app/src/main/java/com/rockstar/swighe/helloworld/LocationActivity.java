@@ -18,15 +18,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.fitness.data.MapValue;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LocationActivity extends ExtendedAppCompatActivity implements LocationListener {
 
@@ -34,6 +37,7 @@ public class LocationActivity extends ExtendedAppCompatActivity implements Locat
     private TextView textLatitude;
     private TextView textLongitude;
     private MapView mapView;
+    private DatabaseReference mDatabase;
     public static final String LATKEY = "lat";
     public static final String LONGKEY = "long";
 
@@ -90,12 +94,22 @@ public class LocationActivity extends ExtendedAppCompatActivity implements Locat
         sendSMS(getString(R.string.chie_phone), message);
     }
 
+    public void saveLocation(View view) {
+        TextView locationText = findViewById(R.id.locationNameTxt);
+        Place place = new Place(locationText.getText().toString(), "Sid", textLatitude.getText().toString(), textLongitude.getText().toString());
+        Map<String, Object> placeValues = place.toMap();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        String key = mDatabase.child("places").push().getKey();
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/places/" + key, placeValues);
+        mDatabase.updateChildren(childUpdates);
+    }
+
     public void displayLocaton(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         intent.putExtra(LATKEY, textLatitude.getText());
         intent.putExtra(LONGKEY, textLongitude.getText());
         startActivity(intent);
-
     }
 
     private void showMap(final double lat, final double lng) {

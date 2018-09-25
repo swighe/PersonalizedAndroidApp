@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "415720734221",
+    "firebase_url": "https://helloworld-f6cc0.firebaseio.com",
+    "project_id": "helloworld-f6cc0",
+    "storage_bucket": "helloworld-f6cc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415720734221:android:cec046173b23494b",
+        "android_client_info": {
+          "package_name": "com.rockstar.swighe.helloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415720734221-0u0d85607iaepn3tuv800h7gad5r2nva.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rockstar.swighe.helloworld",
+            "certificate_hash": "5861ff81c02915d5e513002fdfc0411065136b01"
+          }
+        },
+        {
+          "client_id": "415720734221-uvecan4ni1rmqtq90mq4on532lk3r3jo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiLDzrMUjfmMvFD6DrhaNr1LzqQ67qVUc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415720734221-uvecan4ni1rmqtq90mq4on532lk3r3jo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
